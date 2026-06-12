@@ -5,7 +5,6 @@ import { MailService } from "./mail.service";
 export class MailController {
 
     constructor(private mailService: MailService) {
-
     }
 
     @Post("send-otp")

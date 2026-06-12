@@ -21,3 +21,6 @@ networks:
 # docker compose down
 # docker compose 
 # docker compose up -d  mongodb -d
+# docker exec -it redis redis-cli
+# KEYS *
+# GET key (lay ra key)
