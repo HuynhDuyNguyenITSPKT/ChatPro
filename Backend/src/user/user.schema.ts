@@ -9,6 +9,8 @@ export class User {
     email: string;
     @Prop({ required: true })
     password: string;
+    @Prop({ default: 'user' })
+    role: string;
 }
 
 export type UserDocument = User & Document;

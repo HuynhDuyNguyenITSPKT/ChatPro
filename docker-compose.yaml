@@ -13,6 +13,15 @@ services:
     networks:
       - dev-movie
 
+  redis:
+    image: redis:8
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - dev-movie
+
 networks:
   dev-movie:
     
