@@ -6,6 +6,8 @@ import { MailModule } from './SES/mail.module';
 import { RedisModule } from './redis/redis.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AdminModule } from './admin/admin.module';
+import { S3Module } from './S3/s3.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { MongooseModule } from '@nestjs/mongoose';
     NoteModule,
     MailModule,
     RedisModule,
+    AdminModule,
+    S3Module,
   ],
 })
 export class AppModule { }

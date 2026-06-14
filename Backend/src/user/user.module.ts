@@ -1,9 +1,9 @@
-import { Module, forwardRef } from '@nestjs/common';
+import { Global, Module, forwardRef } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './user.schema';
 import { UserController } from './user.controller';
 import { AuthModule } from 'src/auth/auth.module';
-
+@Global()
 @Module({
   imports: [
     forwardRef(() => AuthModule),
