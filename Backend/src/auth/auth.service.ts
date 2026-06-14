@@ -137,7 +137,7 @@ export class AuthService {
             }
         }
 
-        const token = await this.generateTokens(user._id.toString(), user.email);
+        const token = await this.generateTokens(user._id.toString(), user.email, user.role);
 
         // Store refresh token in Redis with a 7-day TTL (604800 seconds)
         await this.redisService.set(
@@ -190,7 +190,7 @@ export class AuthService {
                 };
             }
 
-            const token = await this.generateTokens(user._id.toString(), user.email);
+            const token = await this.generateTokens(user._id.toString(), user.email, user.role);
 
             // Overwrite the refresh token in Redis with the new one
             await this.redisService.set(
@@ -256,10 +256,11 @@ export class AuthService {
         return !!isBlacklisted;
     }
 
-    async generateTokens(userId: string, email: string) {
+    async generateTokens(userId: string, email: string, role: string) {
         const payload = {
             sub: userId,
             email,
+            role,
         };
 
         const accessToken = await this.jwtService.signAsync(
